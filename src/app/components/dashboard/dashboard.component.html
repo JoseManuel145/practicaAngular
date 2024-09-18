@@ -1,0 +1,72 @@
+<div class="grid-container">
+  <hr>
+  <mat-grid-list [cols]="2" rowHeight="400px">
+    <!-- Formulario para agregar teléfono -->
+    <mat-grid-tile colspan="1" rowspan="0.6">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>Agregar Teléfono</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <form [formGroup]="telefonoForm">
+            <label for="model">Modelo:</label>
+            <input id="model" type="text" formControlName="model">
+            
+            <label for="color">Color:</label>
+            <input id="color" type="text" formControlName="color">
+            <button type="button" (click)="addColor()">Agregar Color</button>
+            <br>
+            <button type="button" (click)="createTelefono()">Agregar Teléfono</button>
+          </form>
+
+          @if (coloresArray.length > 0) {
+            <h3>Colores agregados:</h3>
+            <ul>
+              @for (color of coloresArray; track color) {
+                <li>{{ color }}</li>
+              }
+            </ul>
+          }
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Lista de teléfonos -->
+    <mat-grid-tile colspan="1" rowspan="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>Lista de Teléfonos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <ul>
+            @for (telefono of telefonosArray; track telefono) {
+              <li>
+                Modelo: {{ telefono.model }} | 
+                Colores: <a (click)="openColorsDialog(telefono.colorsAvalaible)">Ver Colores</a>
+                <button (click)="deleteTelefono(telefono.id)">Eliminar</button>
+              </li>
+            }
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
+<!--
+ el boton de los 3 puntitos : 
+<button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+
+ el contenido del boton de los 3 puntitos :
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item>Expand</button>
+  <button mat-menu-item>Remove</button>
+</mat-menu>
+
+mat-card-tittle : titulo de la card (es como una etiqueta)
+mat-card-header : lo que se encuentra en el top
+mat-card-content : para el contenido
+-->

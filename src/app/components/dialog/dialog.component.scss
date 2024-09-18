@@ -1,0 +1,42 @@
+/* Estilo para el título del diálogo */
+.mat-dialog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  
+  /* Estilo para el contenido del diálogo */
+  .mat-dialog-content {
+    font-size: 1rem;
+    color: #555;
+    padding: 1rem;
+  }
+  
+  /* Estilo para la lista de colores */
+  .mat-dialog-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .mat-dialog-content li {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Estilo para las acciones del diálogo */
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  /* Estilo para el botón de cerrar */
+  .mat-dialog-actions .mat-button {
+    font-size: 1rem;
+    color: #1976d2; /* Cambia este color según tu tema */
+    padding: 0.5rem 1rem;
+  }
+  
